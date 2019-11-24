@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import ImagemLogin from '../../imagens/login.svg';
-import Navbar from '../../componentes/Navbar';
 
 import './Login.css';
 
@@ -9,11 +9,6 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <Row>
-                    <Col xs="12">
-                        <Navbar />
-                    </Col>
-                </Row>
                 <Row className="container-login">
                     <Col xl="4" className="col-img">
                         <img className="imagem-login" src={ImagemLogin} alt="imagem login" />
@@ -36,7 +31,7 @@ class Login extends Component {
                             </FormGroup>
                             <Button className="mb-3" color="success" size="large" block>Entrar</Button>
                         </Form>
-                        <p className="text-center">Não tem conta? Cadastre-se</p>
+                        <p className="text-center">Não tem conta? <Link to="/cadastro">Cadastre-se</Link></p>
                     </Col>
                 </Row>
             </div>
@@ -44,4 +39,4 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default Login;
