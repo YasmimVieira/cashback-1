@@ -1,0 +1,9 @@
+.App {
+    overflow-x: hidden;
+    font-family: 'Lato', sans-serif;
+}
+
+.title {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+}
