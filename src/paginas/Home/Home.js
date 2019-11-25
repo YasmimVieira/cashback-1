@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Col, Row, Table, Button } from 'reactstrap';
+import { Col, Row, Table } from 'reactstrap';
+import AddProduto from '../../componentes/ModalAddProduto/AddProduto'
 import Avatar from '../../imagens/avatar.svg';
-
 import './Home.css';
-
 class Home extends Component {
     render() {
         return(
@@ -18,7 +17,7 @@ class Home extends Component {
                         <p className="text-center mt-2">Você tem <strong>R$15,00</strong> disponíveis para a próxima compra</p>
                     </Col>
                 </Col>
-                <Col sm={7} className="tabela-produtos ml-4">
+                <Col sm={9} className="tabela-produtos ml-4">
                     <Row>
                         <h2 className="title ml-4">Produtos cadastrados</h2>
                     </Row>
@@ -30,6 +29,7 @@ class Home extends Component {
                             <th>Data</th>
                             <th>Valor</th>
                             <th>Cashback</th>
+                            <th>Valor Cashback</th>
                             <th>Status</th>
                             </tr>
                         </thead>
@@ -40,6 +40,7 @@ class Home extends Component {
                             <td>13/10/2019</td>
                             <td>R$90,00</td>
                             <td>10%</td>
+                            <td>R$9,00</td>
                             <td className="text-success font-weight-bold">Aprovado</td>
                             </tr>
                             <tr>
@@ -48,7 +49,8 @@ class Home extends Component {
                             <td>13/10/2019</td>
                             <td>R$15,00</td>
                             <td>5%</td>
-                            <td className="text-warning font-weight-bold">Aguardando validação</td>
+                            <td>R$0,75</td>
+                            <td className="text-warning font-weight-bold">Em validação</td>
                             </tr>
                             <tr>
                             <th scope="row">345785</th>
@@ -56,13 +58,12 @@ class Home extends Component {
                             <td>13/10/2019</td>
                             <td>R$20,00</td>
                             <td>8%</td>
+                            <td>R$1,60</td>
                             <td className="text-danger font-weight-bold">Reprovado</td>
                             </tr>
                         </tbody>
                     </Table>
-                    <Button className="text-right mb-3" color="success" size="large">
-                        Adicionar produto
-                    </Button>
+                    <AddProduto />
                 </Col>
             </Row>
         )

@@ -13,8 +13,8 @@ class Login extends Component {
                     <img className="imagem-login" src={ImagemLogin} alt="imagem login" />
                 </Col>
                 <Col xl="4" id="col-form">
-                    <Row className="title text-center mb-3">
-                        <h2>Cashback Boticário</h2>
+                    <Row>
+                        <h2 className="title text-center mb-3">Cashback Boticário</h2>
                     </Row>
                     <Row className="title text-center mb-3">
                         <h4>Bem-vindo! Acesse sua conta</h4>

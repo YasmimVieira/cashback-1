@@ -1,7 +1,7 @@
 import React from 'react';
 import {Navbar, NavbarBrand} from 'reactstrap';
 
-import logo from '../imagens/logo.png';
+import logo from '../../imagens/logo.png';
 
 export default () => {
     return (
