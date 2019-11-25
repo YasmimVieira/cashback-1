@@ -8,8 +8,8 @@ class Home extends Component {
         return(
             <Row className="container-home ml-4">
                 <Col sm={2}>
-                    <Col id="info-pessoal">
-                        <img className="avatar text-center" src={Avatar} alt="imagem login" />
+                    <Col id="info-pessoal" className="text-center">
+                        <img className="avatar" src={Avatar} alt="avatar" />
                         <p>Victória Durães</p>
                         <p>387.112.485-37</p>
                     </Col>
