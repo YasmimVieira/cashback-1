@@ -1,0 +1,17 @@
+#info-pessoal {
+    padding: 20% 10% 40%;
+    background-color: #E1E7E4;
+    border-radius: 7%;
+    margin: 8% 0 20% 0;
+}
+
+.avatar {
+    width: 100px;
+    margin-bottom: 10%;
+}
+
+.saldo {
+    background-color: #FBB53D;
+    border-radius: 7%;
+    padding: 10%;
+}
