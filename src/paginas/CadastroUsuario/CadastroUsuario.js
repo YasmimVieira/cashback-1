@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback } from 'reactstrap';
-import * as NovoUsuarioActions from "../../redux/actions/cadastroUsuario";
+import { Col, Row, Button } from 'reactstrap';
+import { AvForm, AvField } from 'availity-reactstrap-validation';
+import * as NovoUsuarioActions from "../../redux/actions/actionUsuarios";
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import './CadastroUsuario.css';
-
 class CadastroUsuario extends Component {
     
     render() {
-        const regexCPF = /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/;
         const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         return (
@@ -19,59 +18,51 @@ class CadastroUsuario extends Component {
                     <Row className="text-center mb-3">
                         <h2 className="title">Crie sua conta</h2>
                     </Row>
-                    <Form>
-                        <FormGroup className="mb-3">
-                            <Label>Nome</Label>
-                            <Input type="text" id="nome" 
-                                placeholder="Nome completo" 
+                        <AvForm>
+                            <AvField name="nome" label="Nome" type="text"
+                                placeholder="Nome completo"
                                 value={this.props.nome}
-                                invalid={this.props.nome.trim() === '' || this.props.nome.length < 10}
                                 onChange={this.props.cadastroNome}
+                                validate={{ required: {value: true, errorMessage: 'Digite seu nome completo'},
+                                    minLength: {value: 10, errorMessage: 'Digite seu nome completo'},
+                                }}
                             />
-                            <FormFeedback>Campo obrigatório. Digite seu nome completo</FormFeedback>
-                        </FormGroup>
-                        <FormGroup className="mb-3">
-                            <Label>CPF</Label>
-                            <Input type="text" id="cpf" 
-                                placeholder="CPF" 
+                            <AvField name="cpf" label="CPF" type="text"
+                                placeholder="123.456.789-10"
                                 value={this.props.cpf}
-                                invalid={this.props.cpf !== regexCPF.test(this.props.cpf)}
                                 onChange={this.props.cadastroCPF}
+                                validate={{ required: {value: true, errorMessage: 'CPF inválido'},
+                                    pattern: {value: /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/, errorMessage: 'CPF inválido'},
+                                }}
                             />
-                            <FormFeedback>CPF inválido</FormFeedback>
-                        </FormGroup>
-                        <FormGroup className="mb-3">
-                            <Label>Email</Label>
-                            <Input type="email" id="email" 
+                            <AvField name="email" label="Email" type="email"
                                 placeholder="seuemail@email.com" 
                                 value={this.props.email}
-                                invalid={this.props.email !== regexEmail.test(this.props.email)}
                                 onChange={this.props.cadastroEmail}
+                                validate={{ required: {value: true, errorMessage: 'Email inválido'},
+                                    pattern: {value: regexEmail, errorMessage: 'Email inválido'},
+                                }}
                             />
-                            <FormFeedback>Email inválido</FormFeedback>
-                        </FormGroup>
-                        <FormGroup className="mb-3">
-                            <Label>Senha</Label>
-                            <Input type="password" id="senha" 
+                            <AvField name="senha" label="Senha" type="password"
                                 placeholder="Digite sua senha" 
                                 value={this.props.senha}
                                 onChange={this.props.cadastroSenha}
-                                invalid={this.props.senha.length < 8}
+                                validate={{ required: {value: true, errorMessage: 'Necessário no mínimo 8 caracteres'},
+                                    minLength: {value: 8, errorMessage: 'Necessário no mínimo 8 caracteres'},
+                                }}
                             />
-                            <FormFeedback>A senha precisa ter no mínimo 8 caracteres</FormFeedback>
-                        </FormGroup>
-                        <FormGroup className="mb-5">
-                            <Label>Confirme sua senha</Label>
-                            <Input type="password" id="confirmaSenha"
+                            <AvField name="confirmaSenha" label="Confirme sua senha" type="password"
                                 placeholder="Digite sua senha novamente" 
                                 value={this.props.confirmaSenha}
-                                invalid={this.props.senha !== this.props.confirmaSenha}
                                 onChange={this.props.validarSenha}
+                                validate={{ required: {value: true, errorMessage: 'Mesma senha do campo anterior'},
+                                    minLength: {value: 8, errorMessage: 'Mesma senha do campo anterior'},
+                                }}
                             />
-                            <FormFeedback>A senha precisa ser a mesma do campo anterior</FormFeedback>
-                        </FormGroup>
-                        <Button className="mb-3" color="success" size="large" type="submit" block>Cadastrar</Button>
-                    </Form>
+                        <Button className="mt-4 mb-3" color="success" size="large" type="submit" block>
+                            Cadastrar
+                        </Button>
+                        </AvForm>
                     <p className="text-center">Já tem conta? <Link to="/login">Faça login</Link></p>
                 </Col>
             </div>
