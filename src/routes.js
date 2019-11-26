@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Login from './paginas/Login/Login';
-import CadastroUsuario from './paginas/CadastroUsuario/CadastroUsuario';
-import Home from './paginas/Home/Home';
+import Login from './pages/Login/Login';
+import CadastroUsuario from './pages/CadastroUsuario/CadastroUsuario';
+import Home from './pages/Home/Home';
 
 export default () => (
 <Switch>

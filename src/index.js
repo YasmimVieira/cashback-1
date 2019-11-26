@@ -1,21 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'connected-react-router';
+import store, { history } from './redux/store';
+import { Provider } from 'react-redux';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
-import reducers from './redux/reducers';
-
-const store = createStore(reducers)
 
 ReactDOM.render((
-    <BrowserRouter>
-        <Provider store={store}>
+    <Provider store={store}>
+        <ConnectedRouter history={history}>
             <App />
-        </Provider>
-    </BrowserRouter>
+        </ConnectedRouter>
+    </Provider>
     ),
     document.getElementById('app')
 );
