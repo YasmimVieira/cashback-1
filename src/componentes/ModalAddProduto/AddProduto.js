@@ -34,7 +34,7 @@ const AddProduto = (props) => {
         </FormGroup>
         <FormGroup className="mb-3">
             <Label for="data">Data</Label>
-            <Input type="date" id="data" />
+            <Input type="date" id="data" placeholder="date placeholder" />
         </FormGroup>
       </ModalBody>
       <ModalFooter>
