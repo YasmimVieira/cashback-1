@@ -6,6 +6,11 @@ import ImagemLogin from '../../imagens/login.svg';
 import './Login.css';
 
 class Login extends Component {
+
+    validaForm() {
+        return this.props.senha.length >= 8;
+    }
+
     render() {
         return (
             <Row className="container-login">
@@ -28,7 +33,10 @@ class Login extends Component {
                             <Label for="senha">Senha</Label>
                             <Input type="password" id="senha" placeholder="Digite sua senha" />
                         </FormGroup>
-                        <Button className="mb-3" color="success" size="large" block>Entrar</Button>
+                        <Button className="mb-3" color="success" size="large" 
+                                block disabled={!this.validaForm()}>
+                            Entrar
+                        </Button>
                     </Form>
                     <p className="text-center">Não tem conta? <Link to="/cadastro">Cadastre-se</Link></p>
                 </Col>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Row, Table } from 'reactstrap';
-import AddProduto from '../../componentes/ModalAddProduto/AddProduto'
+import AddProduto from '../../components/ModalAddProduto/AddProduto'
 import Avatar from '../../imagens/avatar.svg';
 import './Home.css';
 class Home extends Component {
