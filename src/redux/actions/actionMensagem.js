@@ -1,4 +1,4 @@
-import { constMensagens } from '../../constantes/constMensagens';
+import { constMensagens } from '../../constants/constMensagens';
 
 export const actionMsg = {
     successo,
