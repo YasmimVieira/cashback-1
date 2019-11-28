@@ -2,6 +2,7 @@
 import USUARIO from '../../constants';
 import { usuarioServer } from '../../service/usuarioServer';
 import { history } from '../store';
+import { buildToast, ToastTypes } from '../../helper/toastify';
 
 export function login(email, senha) {
     return dispatch => {
@@ -14,8 +15,13 @@ export function login(email, senha) {
                     history.push('/home');
                 },
                 error => {
-                    dispatch({ type: USUARIO.LOGIN_ERRO, error });
-                    // dispatch(actionMsg.erro(error.toString()));
+                    dispatch({ type: USUARIO.LOGIN_ERRO, error },
+                        { type: 'TOAST_ERRO', 
+                            toast: buildToast('Email ou senha incorreta. Digite novamente',
+                                 {type: ToastTypes.ERROR}
+                        )}
+                    );
+                    console.error(error)
                 }
             );
     };
@@ -35,11 +41,18 @@ export function cadastrarUsuario(usuario) {
                 usuario => { 
                     dispatch({ type: USUARIO.CADASTRAR_SUCESSO, usuario });
                     history.push('/home');
-                    // dispatch(actionMsg.sucesso('Usuário cadastrado com sucesso!'));
+                    dispatch({type: 'TOAST_SUCESSO', 
+                        toast: buildToast('Cadastro concluído com sucesso!', 
+                        {type: ToastTypes.SUCCESS})
+                    })
                 },
                 error => {
-                    dispatch({ type: USUARIO.CADASTRAR_ERRO, error });
-                    // dispatch(actionMsg.erro(error.toString()));
+                    dispatch({ type: USUARIO.CADASTRAR_ERRO, error },
+                        { type: 'TOAST_ERRO', 
+                            toast: buildToast('Email ou senha incorreta. Digite novamente',
+                             {type: ToastTypes.ERROR})
+                        }
+                    );
                 }
             );
     };
