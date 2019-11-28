@@ -1,0 +1,13 @@
+.footer {
+    background-color: #6d6d6d;
+    min-height: 16vh;
+}
+
+.footer img {
+    width: 25px;
+    margin: 0 7px;
+}
+
+.footer-texto {
+    color: #ffffff;
+}

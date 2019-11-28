@@ -1,7 +1,7 @@
 #info-pessoal {
-    padding: 20% 10% 40%;
+    padding: 10% 10% 35%;
     background-color: #E1E7E4;
-    border-radius: 7%;
+    border-radius: 5%;
     margin: 8% 0 20% 0;
 }
 
@@ -13,5 +13,6 @@
 .saldo {
     background-color: #FBB53D;
     border-radius: 7%;
-    padding: 10%;
+    padding: 5%;
+    font-size: 0.8em;
 }
