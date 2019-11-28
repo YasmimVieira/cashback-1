@@ -1,15 +1,15 @@
-import { constUsuario } from '../../constants/constUsuarios';
+import USUARIO from '../../constants';
 
 let usuario = JSON.parse(localStorage.getItem('usuario'));
 
 const INITIAL_STATE = usuario ? { loggedIn: true, usuario } : {};
 
-export default function authentication(state = INITIAL_STATE, action) {
+export default function autenticacao(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case constUsuario.LOGIN_REQUEST: return { loggingIn: true, usuario: action.usuario };
-    case constUsuario.LOGIN_SUCCESSO: return { loggedIn: true, usuario: action.usuario };
-    case constUsuario.LOGIN_ERRO: return {};
-    case constUsuario.LOGOUT: return {};
+    case USUARIO.LOGIN_REQUEST: return { loggingIn: true, usuario: action.usuario };
+    case USUARIO.LOGIN_SUCESSO: return { loggedIn: true, usuario: action.usuario };
+    case USUARIO.LOGIN_ERRO: return {};
+    case USUARIO.LOGOUT: return {};
     default: return state;
   }
 }
