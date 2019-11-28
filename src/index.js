@@ -8,6 +8,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 
+import { configureMockBackEnd } from './helper/mockBackEnd';
+
+configureMockBackEnd();
+
 ReactDOM.render((
     <Provider store={store}>
         <ConnectedRouter history={history}>

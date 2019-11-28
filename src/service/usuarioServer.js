@@ -1,4 +1,5 @@
-import config from 'config';
+// import config from 'config';
+const config = {apiUrl: "http://localhost:4000"};
 
 export const usuarioServer = {
     login,
@@ -28,53 +29,14 @@ function logout() {
     localStorage.removeItem('usuario');
 }
 
-// function getAll() {
-//     const requestOptions = {
-//         method: 'GET',
-//         headers: authHeader()
-//     };
-
-//     return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);
-// }
-
-// function getById(id) {
-//     const requestOptions = {
-//         method: 'GET',
-//         headers: authHeader()
-//     };
-
-//     return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
-// }
-
 function register(usuario) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(usuario)
     };
-
     return fetch(`${config.apiUrl}/usuarios/cadastrar`, requestOptions).then(handleResponse);
 }
-
-// function update(user) {
-//     const requestOptions = {
-//         method: 'PUT',
-//         headers: { ...authHeader(), 'Content-Type': 'application/json' },
-//         body: JSON.stringify(user)
-//     };
-
-//     return fetch(`${config.apiUrl}/users/${user.id}`, requestOptions).then(handleResponse);;
-// }
-
-// // prefixed function name with underscore because delete is a reserved word in javascript
-// function _delete(id) {
-//     const requestOptions = {
-//         method: 'DELETE',
-//         headers: authHeader()
-//     };
-
-//     return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
-// }
 
 function handleResponse(response) {
     return response.text().then(text => {
