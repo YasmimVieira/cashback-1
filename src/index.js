@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import store, { history } from './redux/store';
 import { Provider } from 'react-redux';
+import {ToastContainer} from "react-toastify";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 
@@ -14,6 +16,7 @@ configureMockBackEnd();
 
 ReactDOM.render((
     <Provider store={store}>
+        <ToastContainer position={'top-center'} />
         <ConnectedRouter history={history}>
             <App />
         </ConnectedRouter>
