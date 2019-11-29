@@ -75,9 +75,9 @@ class Login extends Component {
                             }}
                         />
                         <Button disabled={!this.validaForm()}
-                            className="mb-3" color="success" size="large" 
+                            className="mb-3" color="success" size="large"
+                            type="submit" 
                             block onClick={this.handleSubmit}
-                            debugger
                         >
                             Entrar
                         </Button>

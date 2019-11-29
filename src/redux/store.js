@@ -4,7 +4,7 @@ import { createLogger } from 'redux-logger';
 import { createBrowserHistory } from 'history';
 import { routerMiddleware } from 'connected-react-router';
 import createRootReducer from './reducers';
-import toastMiddleware from './middleware/toastMiddleware';
+// import toastMiddleware from './middleware/toastMiddleware';
 
 export const history = createBrowserHistory();
 const loggerMiddleware = createLogger();
@@ -14,7 +14,7 @@ const store = createStore(
     applyMiddleware(
         thunkMiddleware,
         loggerMiddleware,
-        toastMiddleware,
+        // toastMiddleware,
         routerMiddleware(history)
     )
 );
