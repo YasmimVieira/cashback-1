@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Col, Row, Table } from 'reactstrap';
+import * as ActionUsuarios from '../../redux/actions/actionUsuarios';
 import AddProduto from '../../components/ModalAddProduto/AddProduto';
 import Footer from '../../components/Footer/Footer';
-import Avatar from '../../imagens/avatar.svg';
+import avatar from '../../imagens/avatar.svg';
+import logout from '../../imagens/logout.png';
 import './Home.css';
 class Home extends Component {
+
     render() {
+        const { usuario } = this.props.loginReducer;        
         return(
             <div>
                 <Row className="container-home ml-4">
-                    <Col sm={2}>
-                        <Col id="info-pessoal" className="text-center">
-                            <img className="avatar" src={Avatar} alt="avatar" />
-                            <p>Victória Durães</p>
-                            <p>387.112.485-37</p>
-                            <Col className="saldo mt-5">
-                                <p className="text-center mt-2">Você tem <strong>R$11,35</strong> disponíveis para a próxima compra</p>
-                            </Col>
-                        </Col>
+                    <Col id="info-pessoal" className="text-center" sm={2}>
+                        <img className="avatar" src={avatar} alt="avatar" />
+                        <p>{usuario.nome}</p>
+                        <p>{usuario.cpf}</p>
+                        <Row className="saldo mt-5">
+                            <p className="text-center mt-2">Você tem <strong>R$11,35</strong> disponíveis para a próxima compra</p>
+                        </Row>
+                        <Row className="text-right">
+                            <Link to="/login" className="logout">
+                                <img src={logout} alt="logout icone" />
+                                <span className="logout-texto">Sair</span>
+                            </Link>
+                        </Row>       
                     </Col>
                     <Col sm={9} className="tabela-produtos ml-4">
                         <Row>
@@ -74,4 +85,10 @@ class Home extends Component {
     }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+    loginReducer: state.loginReducer
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators(ActionUsuarios, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
