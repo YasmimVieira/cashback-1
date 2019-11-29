@@ -2,7 +2,7 @@ import USUARIO from '../../constants';
 
 let usuario = JSON.parse(localStorage.getItem('usuario'));
 
-const INITIAL_STATE = usuario ? { loggedIn: true, usuario } : {};
+const INITIAL_STATE = usuario ? { loggedIn: true, usuario } : { loggingIn: false};
 
 export default function autenticacao(state = INITIAL_STATE, action) {
   switch (action.type) {

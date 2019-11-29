@@ -42,7 +42,7 @@ class Login extends Component {
     }
 
     render() {
-        const { loggingIn } = this.props;
+        const { loggingIn } = this.props.loginReducer;
         // eslint-disable-next-line no-useless-escape
         const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return (
@@ -77,6 +77,7 @@ class Login extends Component {
                         <Button disabled={!this.validaForm()}
                             className="mb-3" color="success" size="large" 
                             block onClick={this.handleSubmit}
+                            debugger
                         >
                             Entrar
                         </Button>
@@ -90,7 +91,7 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-    loggingIn: state.loginReducer
+    loginReducer: state.loginReducer
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators(ActionUsuarios, dispatch);

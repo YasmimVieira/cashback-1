@@ -15,13 +15,12 @@ export function login(email, senha) {
                     history.push('/home');
                 },
                 error => {
-                    dispatch({ type: USUARIO.LOGIN_ERRO, error },
-                        { type: 'TOAST_ERRO', 
-                            toast: buildToast('Email ou senha incorreta. Digite novamente',
-                                 {type: ToastTypes.ERROR}
-                        )}
-                    );
-                    console.error(error)
+                    dispatch({ type: USUARIO.LOGIN_ERRO, error });
+                    dispatch({ type: 'TOASTY_ERRO', toast: buildToast(
+                        'Email ou senha incorreta. Digite novamente',
+                         {type: ToastTypes.ERROR})
+                    });
+                    console.error(error);
                 }
             );
     };
@@ -41,18 +40,17 @@ export function cadastrarUsuario(usuario) {
                 usuario => { 
                     dispatch({ type: USUARIO.CADASTRAR_SUCESSO, usuario });
                     history.push('/home');
-                    dispatch({type: 'TOAST_SUCESSO', 
+                    dispatch({type: 'TOASTY_SUCESSO', 
                         toast: buildToast('Cadastro concluído com sucesso!', 
                         {type: ToastTypes.SUCCESS})
                     })
                 },
                 error => {
-                    dispatch({ type: USUARIO.CADASTRAR_ERRO, error },
-                        { type: 'TOAST_ERRO', 
-                            toast: buildToast('Email ou senha incorreta. Digite novamente',
-                             {type: ToastTypes.ERROR})
-                        }
-                    );
+                    dispatch({ type: USUARIO.CADASTRAR_ERRO, error });
+                    dispatch({ type: 'TOASTY_ERRO', 
+                    toast: buildToast('Não foi possível completar o seu cadastro',
+                     {type: ToastTypes.ERROR})
+                });
                 }
             );
     };

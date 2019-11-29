@@ -54,11 +54,11 @@ class CadastroUsuario extends Component {
         const { usuario } = this.state;
         if (usuario.nome && usuario.cpf && usuario.email && usuario.senha) {
             this.props.cadastrarUsuario(usuario);
-        }
+        }    
     }
 
     render() {
-        const { registering  } = this.props
+        const { registering } = this.props.cadastroReducer;
         const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         return (
@@ -112,7 +112,7 @@ class CadastroUsuario extends Component {
                             className="mt-4 mb-3" color="success" size="large" 
                             type="submit" block
                             onClick={this.handleSubmit}
-                        >
+                            >
                             Cadastrar
                         </Button>
                         { registering }
@@ -125,7 +125,7 @@ class CadastroUsuario extends Component {
 }
 
 const mapStateToProps = state => ({
-    registering: state.cadastroReducer
+    cadastroReducer: state.cadastroReducer
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators(actionUsuarios, dispatch);

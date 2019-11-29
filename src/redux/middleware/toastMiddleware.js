@@ -1,4 +1,4 @@
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const toastMiddleware = () => (next) => (action) => {
   if(action.toast) {
@@ -6,4 +6,5 @@ const toastMiddleware = () => (next) => (action) => {
   }
   return next(action);
 }
+
 export default toastMiddleware;
