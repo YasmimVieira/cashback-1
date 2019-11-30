@@ -1,4 +1,4 @@
-export const USUARIO = {
+const USUARIO = {
     CADASTRAR_REQUEST: 'CADASTRAR_REQUEST',
     CADASTRAR_SUCESSO: 'CADASTRAR_SUCESSO',
     CADASTRAR_ERRO: 'CADASTRAR_ERRO',
@@ -9,3 +9,5 @@ export const USUARIO = {
     
     LOGOUT: 'LOGOUT',  
 };
+
+export default USUARIO;

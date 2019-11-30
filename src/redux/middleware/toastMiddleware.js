@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 
-const toastMiddleware = () => (next) => (action) => {
+const toastMiddleware = () => next => (action) => {
   if(action.toast) {
     toast(action.toast.message, action.toast.options);
   }

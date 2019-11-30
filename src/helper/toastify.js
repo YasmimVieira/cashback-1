@@ -7,5 +7,5 @@ export const buildToast = (message, options) => ({
 
 export default (message,options) => ({
   type: 'SHOW_TOAST',
-  toast: buildToast(message, options),
+  toast: buildToast(message, options)
 });

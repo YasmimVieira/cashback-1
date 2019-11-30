@@ -1,4 +1,4 @@
-import USUARIO from '../../constants';
+import USUARIO from '../../constants/usuarios';
 
 export default function registrar (state = {registering: false}, action) {
     switch(action.type) {

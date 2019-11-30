@@ -1,4 +1,4 @@
-import USUARIO from '../../constants';
+import USUARIO from '../../constants/usuarios';
 
 let usuario = JSON.parse(localStorage.getItem('usuario'));
 
