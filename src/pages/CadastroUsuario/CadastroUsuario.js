@@ -39,15 +39,6 @@ class CadastroUsuario extends Component {
         });
     }
 
-    // validaForm() {
-    //     return this.state.nome !== '' &&
-    //     this.state.cpf !== '' &&
-    //     this.state.email !== '' &&
-    //     this.state.senha !== '' &&
-    //     this.state.confirmaSenha !== '';
-    // }
-
-
     handleSubmit(event) {
         event.preventDefault();
         this.setState({ enviado: true });
@@ -108,11 +99,10 @@ class CadastroUsuario extends Component {
                                     minLength: {value: 8, errorMessage: 'Mesma senha do campo anterior'},
                                 }}
                             />
-                        <Button disabled={this.state.usuario === '' ? true : false}
-                            className="mt-4 mb-3" color="success" size="large" 
+                        <Button className="mt-4 mb-3" color="success" size="large" 
                             type="submit" block
                             onClick={this.handleSubmit}
-                            >
+                        >
                             Cadastrar
                         </Button>
                         { registering }

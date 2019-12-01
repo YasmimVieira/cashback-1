@@ -21,7 +21,7 @@ class Home extends Component {
                         <p>{usuario.nome}</p>
                         <p>{usuario.cpf}</p>
                         <Row className="saldo mt-5">
-                            <p className="text-center mt-2">Você tem <strong>R$11,35</strong> disponíveis para a próxima compra</p>
+                            <p className="text-center mt-2">Você tem <strong>R$9,75</strong> disponíveis para a próxima compra</p>
                         </Row>
                         <Row className="text-right">
                             <Link to="/login" className="logout">
